@@ -5,39 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deksiak - Linki</title>
     <style>
-        /* Kontener na ukryty odtwarzacz YouTube */
-        .video-background {
+        /* Kontener na wideo w tle */
+        #video-container {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -2;
-            pointer-events: none; /* Blokuje klikanie w wideo */
+            width: 100%;
+            height: 100%;
             overflow: hidden;
+            z-index: -2;
             background-color: #000;
         }
 
-        /* Rozciągnięcie i wyśrodkowanie filmu z YT, żeby zakrył ekran */
-        .video-background iframe {
+        /* Styl dla pliku mp4 */
+        #video-background {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 100vw;
-            height: 56.25vw; /* Proporcje 16:9 */
-            min-height: 100vh;
-            min-width: 177.77vh; /* Proporcje 16:9 */
             transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
         }
 
-        /* Przyciemniająca warstwa, żeby napisy i przyciski były mega czytelne */
+        /* Przyciemnienie tła */
         .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 5, 20, 0.65); /* Półprzezroczysty mrok */
+            background: rgba(10, 5, 20, 0.65);
             z-index: -1;
         }
 
@@ -79,7 +79,6 @@
             width: 100%;
         }
 
-        /* Styl neonowych przycisków */
         .btn {
             display: block;
             width: 100%;
@@ -92,10 +91,9 @@
             transition: all 0.3s ease;
             box-sizing: border-box;
             letter-spacing: 1px;
-            backdrop-filter: blur(3px); /* Lekkie rozmycie pod przyciskiem */
+            backdrop-filter: blur(3px);
         }
 
-        /* Przycisk YouTube z neonowym efektem po najechaniu */
         .btn-yt {
             background: linear-gradient(135deg, rgba(255, 0, 0, 0.85), rgba(179, 0, 0, 0.85));
             border: 1px solid rgba(255, 0, 0, 0.4);
@@ -107,7 +105,6 @@
             box-shadow: 0 0 25px rgba(255, 0, 0, 0.9);
         }
 
-        /* Przycisk Discord z neonowym efektem po najechaniu */
         .btn-dc {
             background: linear-gradient(135deg, rgba(88, 101, 242, 0.85), rgba(64, 78, 237, 0.85));
             border: 1px solid rgba(88, 101, 242, 0.4);
@@ -122,12 +119,12 @@
 </head>
 <body>
 
-    <!-- Odtwarzacz wideo z YouTube ukryty w tle -->
-    <div class="video-background">
-        <iframe src="https://www.youtube.com/embed/sawZj-IEPwg?autoplay=1&mute=1&loop=1&playlist=sawZj-IEPwg&controls=0&showinfo=0&rel=0&iv_load_policy=3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div id="video-container">
+        <video autoplay muted loop playsinline id="video-background">
+            <source src="teledysk.mp4" type="video/mp4">
+        </video>
     </div>
 
-    <!-- Ciemna nakładka -->
     <div class="overlay"></div>
 
     <h1>Deksiak</h1>
