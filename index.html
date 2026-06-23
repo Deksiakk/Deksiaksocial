@@ -5,11 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deksiak - Linki</title>
     <style>
-        /* Animowane gradientowe tło */
+        /* Kontener na ukryty odtwarzacz YouTube */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            pointer-events: none; /* Blokuje klikanie w wideo */
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        /* Rozciągnięcie i wyśrodkowanie filmu z YT, żeby zakrył ekran */
+        .video-background iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 56.25vw; /* Proporcje 16:9 */
+            min-height: 100vh;
+            min-width: 177.77vh; /* Proporcje 16:9 */
+            transform: translate(-50%, -50%);
+        }
+
+        /* Przyciemniająca warstwa, żeby napisy i przyciski były mega czytelne */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 5, 20, 0.65); /* Półprzezroczysty mrok */
+            z-index: -1;
+        }
+
         body {
-            background: linear-gradient(-45deg, #0f0c20, #150030, #001f4d, #1a0033);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
             color: #ffffff;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             text-align: center;
@@ -20,13 +52,6 @@
             flex-direction: column;
             justify-content: center;
             box-sizing: border-box;
-        }
-
-        /* Reguły animacji tła */
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
 
         h1 {
@@ -67,40 +92,48 @@
             transition: all 0.3s ease;
             box-sizing: border-box;
             letter-spacing: 1px;
+            backdrop-filter: blur(3px); /* Lekkie rozmycie pod przyciskiem */
         }
 
         /* Przycisk YouTube z neonowym efektem po najechaniu */
         .btn-yt {
-            background: linear-gradient(135deg, #ff0000, #b30000);
-            border: 1px solid rgba(255, 0, 0, 0.3);
-            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.85), rgba(179, 0, 0, 0.85));
+            border: 1px solid rgba(255, 0, 0, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
         }
 
         .btn-yt:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.9);
         }
 
         /* Przycisk Discord z neonowym efektem po najechaniu */
         .btn-dc {
-            background: linear-gradient(135deg, #5865F2, #404eed);
-            border: 1px solid rgba(88, 101, 242, 0.3);
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.2);
+            background: linear-gradient(135deg, rgba(88, 101, 242, 0.85), rgba(64, 78, 237, 0.85));
+            border: 1px solid rgba(88, 101, 242, 0.4);
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
         }
 
         .btn-dc:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(88, 101, 242, 0.7);
+            box-shadow: 0 0 25px rgba(88, 101, 242, 0.9);
         }
     </style>
 </head>
 <body>
 
+    <!-- Odtwarzacz wideo z YouTube ukryty w tle -->
+    <div class="video-background">
+        <iframe src="https://www.youtube.com/embed/sawZj-IEPwg?autoplay=1&mute=1&loop=1&playlist=sawZj-IEPwg&controls=0&showinfo=0&rel=0&iv_load_policy=3" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <!-- Ciemna nakładka -->
+    <div class="overlay"></div>
+
     <h1>Deksiak</h1>
     <p>Wpadaj na moje social media!</p>
 
     <div class="links-container">
-        <!-- Twoje działające linki są już tutaj wklejone -->
         <a href="https://www.youtube.com/@deksiak2" target="_blank" class="btn btn-yt">KANAŁ YOUTUBE</a>
         <a href="https://discord.gg/6xx76a3Xwh" target="_blank" class="btn btn-dc">SERWER DISCORD</a>
     </div>
