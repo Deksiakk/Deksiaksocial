@@ -5,70 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deksiakweb - Linki</title>
     <style>
+        /* Animowane gradientowe tło */
         body {
-            background-color: #121214;
+            background: linear-gradient(-45deg, #0f0c20, #150030, #001f4d, #1a0033);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             text-align: center;
             padding: 50px 20px;
             margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
         }
+
+        /* Reguły animacji tła */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         h1 {
-            color: #fff;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            color: #ffffff;
+            font-size: 3rem;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.8), 0 0 20px rgba(0, 191, 255, 0.5);
+            letter-spacing: 2px;
         }
+
         p {
-            color: #a0a0a5;
-            font-size: 1.1rem;
+            color: #b0afca;
+            font-size: 1.2rem;
             margin-bottom: 40px;
+            font-weight: 300;
         }
+
         .links-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
-            max-width: 400px;
+            gap: 25px;
+            max-width: 440px;
             margin: 0 auto;
+            width: 100%;
         }
+
+        /* Styl neonowych przycisków */
         .btn {
             display: block;
             width: 100%;
-            padding: 16px;
-            font-size: 18px;
+            padding: 18px;
+            font-size: 19px;
             font-weight: bold;
             text-decoration: none;
             color: white;
-            border-radius: 10px;
-            transition: transform 0.2s, background-color 0.2s;
+            border-radius: 12px;
+            transition: all 0.3s ease;
             box-sizing: border-box;
+            letter-spacing: 1px;
         }
-        .btn:hover {
-            transform: scale(1.03);
-        }
+
+        /* Przycisk YouTube z neonowym efektem po najechaniu */
         .btn-yt {
-            background-color: #ff0000;
+            background: linear-gradient(135deg, #ff0000, #b30000);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
         }
+
         .btn-yt:hover {
-            background-color: #dd0000;
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
         }
+
+        /* Przycisk Discord z neonowym efektem po najechaniu */
         .btn-dc {
-            background-color: #5865F2;
+            background: linear-gradient(135deg, #5865F2, #404eed);
+            border: 1px solid rgba(88, 101, 242, 0.3);
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.2);
         }
+
         .btn-dc:hover {
-            background-color: #454fbf;
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(88, 101, 242, 0.7);
         }
     </style>
 </head>
 <body>
 
     <h1>Deksiakweb</h1>
-    <p>Siemanko! Wpadaj na moje social media:</p>
+    <p>Wpadaj na moje social media!</p>
 
     <div class="links-container">
-        <!-- Tutaj wpiszemy potem Twoje prawdziwe linki zamiast # -->
-        <a href="#" target="_blank" class="btn btn-yt">Kanał YouTube</a>
-        <a href="#" target="_blank" class="btn btn-dc">Serwer Discord</a>
+        <!-- Twoje działające linki są już tutaj wklejone -->
+        <a href="https://www.youtube.com/@deksiak2" target="_blank" class="btn btn-yt">KANAŁ YOUTUBE</a>
+        <a href="https://discord.gg/6xx76a3Xwh" target="_blank" class="btn btn-dc">SERWER DISCORD</a>
     </div>
 
 </body>
